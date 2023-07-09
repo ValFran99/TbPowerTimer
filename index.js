@@ -19,20 +19,13 @@ function testValue(){
     if(rechargeInSeconds <= 0){
       clearInterval(RECHARGE_INTERVAL)
     }
-
     updateDocument(rechargeInSeconds, browserOffset)
     rechargeInSeconds -= 1
   }, 1000)
-  return
 }
 
 function updateDocument(rechargeInSeconds, browserOffset){
   document.getElementById("page-title").innerHTML = "Trailblaze " + new Date(rechargeInSeconds * 1000).toISOString().slice(11, 19);
-    document.getElementById("recharge-time").innerHTML = new Date(rechargeInSeconds * 1000).toISOString().slice(11, 19);
-    document.getElementById("recharge-date").innerHTML = new Date(rechargeInSeconds * 1000 + Date.now() - browserOffset).toISOString().slice(11, 16) + " HS";
-}
-
-function getDate(){
-  var dt = Date()
-  document.getElementById("recharge-time").innerHTML = dt
+  document.getElementById("recharge-time").innerHTML = new Date(rechargeInSeconds * 1000).toISOString().slice(11, 19);
+  document.getElementById("recharge-date").innerHTML = new Date(rechargeInSeconds * 1000 + Date.now() - browserOffset).toISOString().slice(11, 16) + " HS";
 }
