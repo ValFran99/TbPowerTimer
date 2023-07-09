@@ -8,18 +8,9 @@ function testValue(){
     return
   }
 
-  // let initialSegundos = 2000
-  // let horas = Math.floor(initialSegundos / 3600)
-  // let segundos = initialSegundos % 3600
-  // let minutes = Math.floor(segundos / 60)
-  // segundos %= 60
+  let rechargeSeconds = tbInput * TB_RECHARGE_IN_SEC
 
-  let initialSeconds = tbInput * TB_RECHARGE_IN_SEC
-  let rechargeHour = Math.floor(initialSeconds / 3600)
-  let rechargeSeconds = initialSeconds % 3600
-  let rechargeMinutes = rechargeSeconds / 60
-  rechargeSeconds %= 60
-  document.getElementById("recharge-time").innerHTML = rechargeHour + ":" + rechargeMinutes + ":" + rechargeSeconds
+  document.getElementById("recharge-time").innerHTML = new Date(rechargeSeconds * 1000).toISOString().slice(11, 19);
 }
 
 function getDate(){
