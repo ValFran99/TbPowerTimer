@@ -12,8 +12,8 @@
 
   <script>
     $(document).ready(function(){
-      $("#input-tb").on("change", rechargeCalculation)
-      $("#input-full-recharge").on("change", fullRechargeCalculation)
+      $("#input-tb").on("change", $(this), rechargeCalculation)
+      $("#input-full-recharge").on("change", $(this), rechargeCalculation)
     })
   </script>
   
@@ -25,15 +25,19 @@
     <label for="input-tb">Amount to recharge</label>
     <input type="number" placeholder="Trailblaze power" id="input-tb" onclick="this.select()">
     <input type="submit" value="Continue">
-    <p>Recharge time:  <span id="recharge-time"></span></p>
-    <p>It will recharge at <span id="recharge-date"></span></p>
+    <p>Recharge time: </p>
+    <p id="recharge-time"></p>
+    <p>It will recharge at </p>
+    <p id="recharge-date"></p>
   </div>
-  <div id="back-to-full">
+  <div id="full-recharge-calc">
     <label for="input-full-recharge">Amount to recharge</label>
     <input type="number" placeholder="Trailblaze power" id="input-full-recharge" onclick="this.select()">
     <input type="submit" value="Continue">
-    <p>Recharge in:  <span id="full-recharge-time"></span></p>
-    <p>It will fully recharge at <span id="full-recharge-date"></span></p>
+    <p>Recharge in: </p>
+    <p id="full-recharge-time"></p>
+    <p>It will fully recharge at: </p>
+    <p id="full-recharge-date"></p>
   </div>
 </body>
 </html>
