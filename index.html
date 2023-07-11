@@ -23,20 +23,20 @@
 <body>
   <div id="recharge-calc">
     <label for="input-tb">Amount to recharge</label>
-    <input type="number" placeholder="Trailblaze power" id="input-tb" onclick="this.select()">
+    <input type="number" id="input-tb" onclick="this.select()">
     <input type="submit" value="Continue">
-    <p>Recharge time: </p>
+    <p>Will recharge in: </p>
     <p id="recharge-time"></p>
-    <p>It will recharge at </p>
+    <p>at:</p>
     <p id="recharge-date"></p>
   </div>
   <div id="full-recharge-calc">
-    <label for="input-full-recharge">Amount to recharge</label>
-    <input type="number" placeholder="Trailblaze power" id="input-full-recharge" onclick="this.select()">
+    <label for="input-full-recharge">Current trailblaze power</label>
+    <input type="number" id="input-full-recharge" onclick="this.select()">
     <input type="submit" value="Continue">
-    <p>Recharge in: </p>
+    <p>Full refill in: </p>
     <p id="full-recharge-time"></p>
-    <p>It will fully recharge at: </p>
+    <p>at: </p>
     <p id="full-recharge-date"></p>
   </div>
 </body>

@@ -39,7 +39,16 @@ function rechargeCalculation(element){
 }
 
 function updateRechargeDocument(rechargeInSeconds, browserOffset, inputTypeFlag, parentElement){
-  inputTypeFlag ? true : document.getElementById("page-title").innerHTML = "Full recharge in: " + new Date(rechargeInSeconds * 1000).toISOString().slice(11, 19);
-  document.getElementById(parentElement.children[4].id).innerHTML = new Date(rechargeInSeconds * 1000).toISOString().slice(11, 19);
+  let countdownString = new Date(rechargeInSeconds * 1000).toISOString().slice(11, 19)
+  inputTypeFlag ? true : document.getElementById("page-title").innerHTML = "Full recharge in: " + countdownString;
+
+  document.getElementById(parentElement.children[4].id).innerHTML = prettyCountdownFormat(countdownString);
   document.getElementById(parentElement.children[6].id).innerHTML = new Date(rechargeInSeconds * 1000 + Date.now() - browserOffset).toISOString().slice(11, 16) + " HS";
+}
+
+function prettyCountdownFormat(countdownString){
+  let countdownHour = countdownString.slice(0, 2) + "h "
+  let countdownMinute = countdownString.slice(3, 5) + "m "
+  let countdownSecond = countdownString.slice(6, 8) + "s"
+  return countdownHour + countdownMinute + countdownSecond
 }
