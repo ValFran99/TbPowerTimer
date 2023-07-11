@@ -2,7 +2,7 @@ const TB_RECHARGE_IN_SEC = 360
 const MAX_TB = 180
 var RECHARGE_INTERVAL = 0
 
-function testValue(){
+function rechargeCalculation(){
   clearInterval(RECHARGE_INTERVAL)
   let tbInput = document.getElementById("input-tb").value
   if(tbInput > MAX_TB){

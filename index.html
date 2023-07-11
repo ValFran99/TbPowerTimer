@@ -8,6 +8,8 @@
   integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
   crossorigin="anonymous"></script>
 
+  <link rel="stylesheet" href="styles.css">
+
   <script>
     $(document).ready(function(){
       $("#input-tb").on("change", testValue)
@@ -18,8 +20,19 @@
   <title id="page-title">Traiblaze</title>
 </head>
 <body>
-  <input type="number" placeholder="Trailblaze power" id="input-tb" onclick="this.select()">
-  <p>Recharge time:  <span id="recharge-time"></span></p>
-  <p>It will recharge at <span id="recharge-date"></span></p>
+  <div id="recharge-calc">
+    <label for="input-tb">Amount to recharge</label>
+    <input type="number" placeholder="Trailblaze power" id="input-tb" onclick="this.select()">
+    <input type="submit" value="Continue">
+    <p>Recharge time:  <span id="recharge-time"></span></p>
+    <p>It will recharge at <span id="recharge-date"></span></p>
+  </div>
+  <div id="back-to-full">
+    <label for="input-full-recharge">Amount to recharge</label>
+    <input type="number" placeholder="Trailblaze power" id="input-full-recharge" onclick="this.select()">
+    <input type="submit" value="Continue">
+    <p>Recharge in:  <span id="full-recharge-time"></span></p>
+    <p>It will fully recharge at <span id="full-recharge-date"></span></p>
+  </div>
 </body>
 </html>
