@@ -11,7 +11,10 @@ function rechargeCalculation(element){
     return
   }
 
-  var inputTypeFlag = element.currentTarget.id == "input-tb"
+  var inputTypeFlag = element.currentTarget.id == "input-recharge"
+  if(inputTypeFlag){
+    document.getElementById("recharge-text").innerHTML = tbInput + " trailblaze power will recharge in: "
+  }
   clearInterval(inputTypeFlag ? RECHARGE_INTERVAL : FULL_RECHARGE_INTERVAL) 
 
   var rechargeInSeconds = inputTypeFlag ? tbInput * TB_RECHARGE_IN_SEC : (MAX_TB - tbInput) * TB_RECHARGE_IN_SEC
@@ -55,4 +58,28 @@ function prettyCountdownFormat(countdownString){
   let countdownMinute = countdownString.slice(3, 5) + "m "
   let countdownSecond = countdownString.slice(6, 8) + "s"
   return countdownHour + countdownMinute + countdownSecond
+}
+
+// for the toggle switch
+
+function toggleSwitch(){
+  var circle = document.getElementsByClassName("inner-circle")[0]
+  var toggleButton = document.getElementsByClassName("toggle-button")[0]
+  var toggleRecharge = document.getElementById("recharge-calc")
+  var toggleRefill = document.getElementById("refill-calc")
+  var leftPosition = circle.style.left
+
+  if(leftPosition == "29px"){
+    circle.style.left = "0px"
+    toggleButton.style.backgroundColor = "gray"
+    toggleRecharge.style.display = "none"
+    toggleRefill.style.display = "block"
+
+  } else{
+    circle.style.left = "29px"
+    toggleButton.style.backgroundColor = "blueviolet"
+    toggleRecharge.style.display = "block"
+    toggleRefill.style.display = "none"
+
+  }
 }
