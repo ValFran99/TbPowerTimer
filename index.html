@@ -21,19 +21,28 @@
   <title id="page-title">Traiblaze</title>
 </head>
 <body>
-  <div id="recharge-calc">
-    <label for="input-tb">Amount to recharge</label>
-    <input type="number" id="input-tb" onclick="this.select()">
-    <input type="submit" value="Continue">
+  <div class="title">
+    <h1>Honkai Star Rail Trailblaze Power Timer</h1>
+  </div>
+  
+  <div id="recharge-calc" class="container">
+    <label for="input-tb" class="label-input">Amount to recharge</label>
+    <div class="input-container">
+      <input type="number" id="input-tb" onclick="this.select()" class="text-input">
+      <input type="submit" value="Continue" class="submit-button">
+    </div>
     <p>Will recharge in: </p>
     <p id="recharge-time"></p>
     <p>at:</p>
     <p id="recharge-date"></p>
   </div>
-  <div id="full-recharge-calc">
-    <label for="input-full-recharge">Current trailblaze power</label>
-    <input type="number" id="input-full-recharge" onclick="this.select()">
-    <input type="submit" value="Continue">
+
+  <div id="full-recharge-calc" class="container">
+    <label for="input-full-recharge" class="label-input">Current trailblaze power</label>
+    <div class="input-container">
+      <input type="number" id="input-full-recharge" onclick="this.select()" class="text-input">
+      <input type="submit" value="Continue" class="submit-button">
+    </div>
     <p>Full refill in: </p>
     <p id="full-recharge-time"></p>
     <p>at: </p>

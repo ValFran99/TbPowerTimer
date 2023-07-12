@@ -2,20 +2,24 @@ const TB_RECHARGE_IN_SEC = 360
 const MAX_TB = 180
 var RECHARGE_INTERVAL = 0
 var FULL_RECHARGE_INTERVAL = 0
+var FIRST_COUNTDOWN_INDEX = 3
+var SECOND_COUNTDOWN_INDEX = 5
 
 function rechargeCalculation(element){
-
-  var inputTypeFlag = element.currentTarget.id == "input-tb"
-  clearInterval(inputTypeFlag ? RECHARGE_INTERVAL : FULL_RECHARGE_INTERVAL) 
   let tbInput = element.currentTarget.value
   if(tbInput > MAX_TB){
     return
   }
 
+  var inputTypeFlag = element.currentTarget.id == "input-tb"
+  clearInterval(inputTypeFlag ? RECHARGE_INTERVAL : FULL_RECHARGE_INTERVAL) 
+
   var rechargeInSeconds = inputTypeFlag ? tbInput * TB_RECHARGE_IN_SEC : (MAX_TB - tbInput) * TB_RECHARGE_IN_SEC
   let browserOffset = new Date().getTimezoneOffset() * 60 * 1000
 
-  updateRechargeDocument(rechargeInSeconds, browserOffset, inputTypeFlag, element.currentTarget.parentNode)
+  // console.log(element.currentTarget.parentNode.parentNode)
+
+  updateRechargeDocument(rechargeInSeconds, browserOffset, inputTypeFlag, element.currentTarget.parentNode.parentNode)
   rechargeInSeconds -= 1
   if(rechargeInSeconds <= 0){
     return
@@ -27,7 +31,7 @@ function rechargeCalculation(element){
     if(rechargeInSeconds <= 0){
       clearInterval(intervalId)
     }
-    updateRechargeDocument(rechargeInSeconds, browserOffset, inputTypeFlag, element.currentTarget.parentNode)
+    updateRechargeDocument(rechargeInSeconds, browserOffset, inputTypeFlag, element.currentTarget.parentNode.parentNode)
     rechargeInSeconds -= 1
   }, 1000)
 
@@ -42,8 +46,8 @@ function updateRechargeDocument(rechargeInSeconds, browserOffset, inputTypeFlag,
   let countdownString = new Date(rechargeInSeconds * 1000).toISOString().slice(11, 19)
   inputTypeFlag ? true : document.getElementById("page-title").innerHTML = "Full recharge in: " + countdownString;
 
-  document.getElementById(parentElement.children[4].id).innerHTML = prettyCountdownFormat(countdownString);
-  document.getElementById(parentElement.children[6].id).innerHTML = new Date(rechargeInSeconds * 1000 + Date.now() - browserOffset).toISOString().slice(11, 16) + " HS";
+  document.getElementById(parentElement.children[FIRST_COUNTDOWN_INDEX].id).innerHTML = prettyCountdownFormat(countdownString);
+  document.getElementById(parentElement.children[SECOND_COUNTDOWN_INDEX].id).innerHTML = new Date(rechargeInSeconds * 1000 + Date.now() - browserOffset).toISOString().slice(11, 16) + " HS";
 }
 
 function prettyCountdownFormat(countdownString){
