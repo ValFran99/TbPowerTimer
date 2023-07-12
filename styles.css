@@ -1,5 +1,5 @@
 body{
-  border: 1px solid black;
+  /* border: 1px solid black; */
   display: flex;
   flex-wrap: wrap;
   height: 100%;
@@ -11,19 +11,19 @@ div{
 
 .title{
   height: 30%;
-  width: 100vw;
+  width: 99.2%;
   text-align: center;
 }
 
 .container{
   text-align: center;
   font-size: 50px;
-  width: 49.8%;
+  width: 49.5%;
   height: 100%;
 }
 
 .label-input{
-  font-size: 50px;
+  font-size: 30px;
   display: block;
   margin-bottom: 20px;
 }
