@@ -1,9 +1,16 @@
 const TB_RECHARGE_IN_SEC = 360
 const MAX_TB = 180
 var RECHARGE_INTERVAL = 0
-var FULL_RECHARGE_INTERVAL = 0
+var REFILL_INTERVAL = 0
 var FIRST_COUNTDOWN_INDEX = 3
 var SECOND_COUNTDOWN_INDEX = 5
+
+function showText(className){
+  var textElements = document.getElementsByClassName(className)
+  for(let i = 0; i < textElements.length; i++){
+    textElements[i].style.display = "block"
+  }
+}
 
 function rechargeCalculation(element){
   let tbInput = element.currentTarget.value
@@ -15,14 +22,14 @@ function rechargeCalculation(element){
   if(inputTypeFlag){
     document.getElementById("recharge-text").innerHTML = tbInput + " trailblaze power will recharge in: "
   }
-  clearInterval(inputTypeFlag ? RECHARGE_INTERVAL : FULL_RECHARGE_INTERVAL) 
+  clearInterval(inputTypeFlag ? RECHARGE_INTERVAL : REFILL_INTERVAL) 
 
   var rechargeInSeconds = inputTypeFlag ? tbInput * TB_RECHARGE_IN_SEC : (MAX_TB - tbInput) * TB_RECHARGE_IN_SEC
   let browserOffset = new Date().getTimezoneOffset() * 60 * 1000
 
-  // console.log(element.currentTarget.parentNode.parentNode)
-
+  showText(inputTypeFlag ? "toggle-recharge" : "toggle-refill")
   updateRechargeDocument(rechargeInSeconds, browserOffset, inputTypeFlag, element.currentTarget.parentNode.parentNode)
+
   rechargeInSeconds -= 1
   if(rechargeInSeconds <= 0){
     return
@@ -41,7 +48,7 @@ function rechargeCalculation(element){
   if(inputTypeFlag){
     RECHARGE_INTERVAL = intervalId
   } else{
-    FULL_RECHARGE_INTERVAL = intervalId
+    REFILL_INTERVAL = intervalId
   }
 }
 
@@ -69,15 +76,15 @@ function toggleSwitch(){
   var toggleRefill = document.getElementById("refill-calc")
   var leftPosition = circle.style.left
 
-  if(leftPosition == "29px"){
-    circle.style.left = "0px"
-    toggleButton.style.backgroundColor = "gray"
+  if(leftPosition == "50%"){
+    circle.style.left = "5%"
+    toggleButton.style.backgroundColor = "white"
     toggleRecharge.style.display = "none"
     toggleRefill.style.display = "block"
 
   } else{
-    circle.style.left = "29px"
-    toggleButton.style.backgroundColor = "blueviolet"
+    circle.style.left = "50%"
+    toggleButton.style.backgroundColor = "#007bff"
     toggleRecharge.style.display = "block"
     toggleRefill.style.display = "none"
 

@@ -3,6 +3,8 @@ body{
   display: block;
   flex-wrap: wrap;
   height: 100%;
+  background-color: #ced7e0;
+  font-family: "D-DIN", sans-serif;
 }
 
 div{
@@ -47,6 +49,14 @@ div{
   font-size: 35%;
 }
 
+.toggle-recharge{
+  display: none;
+}
+
+.toggle-refill{
+  display: none;
+}
+
 /* For the toggle button */
 
 .title{
@@ -72,8 +82,8 @@ div{
 .toggle-container{
   display: flex;
   align-self: center;
-  width: 60px;
-  height: 30px;
+  width: 50px;
+  height: 25px;
   cursor: pointer;
   user-select: none;
 }
@@ -81,16 +91,19 @@ div{
 .toggle-button{
   width: 100%;
   height: 100%;
+  border: 1px solid black;
   border-radius: 20px 20px 20px 20px;
-  background-color: gray;
+  background-color: white;
+  transition: all .2s ease-in-out;
 }
 
 .inner-circle{
+  border: 1px solid black;
   position: relative;
-  left: 0px;
-  top: 1px;
-  width: 25px;
-  height: 25px;
+  left: 5%;
+  top: 8%;
+  width: 41%;
+  height: 75%;
   border-radius: 50%;
   background-color: white;
   transition: all .2s ease-in-out;

@@ -10,6 +10,8 @@
 
   <link rel="stylesheet" href="styles.css">
 
+  <link href="https://fonts.cdnfonts.com/css/d-din" rel="stylesheet">
+
   <script>
     $(document).ready(function(){
       $("#input-recharge").on("change", $(this), rechargeCalculation)
@@ -38,10 +40,10 @@
       <input type="number" id="input-recharge" onclick="this.select()" class="text-input">
       <input type="submit" value="Continue" class="submit-button">
     </div>
-    <p id="recharge-text">Will recharge in: </p>
-    <p id="recharge-time"></p>
-    <p>at:</p>
-    <p id="recharge-date"></p>
+    <p id="recharge-text" class="toggle-recharge"></p>
+    <p id="recharge-time" class="toggle-recharge"></p>
+    <p class="toggle-recharge">at:</p>
+    <p id="recharge-date" class="toggle-recharge"></p>
   </div>
 
   <div id="refill-calc" class="container">
@@ -50,10 +52,10 @@
       <input type="number" id="input-refill" onclick="this.select()" class="text-input">
       <input type="submit" value="Continue" class="submit-button">
     </div>
-    <p>Full refill in: </p>
-    <p id="refill-time"></p>
-    <p>at: </p>
-    <p id="refill-date"></p>
+    <p class="toggle-refill">Full refill in: </p>
+    <p id="refill-time" class="toggle-refill"></p>
+    <p class="toggle-refill">at: </p>
+    <p id="refill-date" class="toggle-refill"></p>
   </div>
 </body>
 </html>
