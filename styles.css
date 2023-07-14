@@ -1,14 +1,10 @@
 body{
-  /* border: 1px solid black; */
+  margin: 0;
   display: block;
   flex-wrap: wrap;
   height: 100%;
-  background-color: #ced7e0;
   font-family: "D-DIN", sans-serif;
-}
-
-div{
-  border: 1px solid black;
+  overflow-x: hidden;
 }
 
 #recharge-calc{
@@ -49,11 +45,7 @@ div{
   font-size: 35%;
 }
 
-.toggle-recharge{
-  display: none;
-}
-
-.toggle-refill{
+.toggle-recharge, .toggle-refill{
   display: none;
 }
 
@@ -66,17 +58,17 @@ div{
   text-align: center;
   flex-wrap: wrap;
   justify-content: center;
+  background-color: #ced7e0;
 }
 
 #toggle-text{
-  border: 1px solid black;
   margin-right: 10px;
 }
 
 #title-text{
   width: 100%;
   align-items: center;
-  border: 1px solid black;
+  font-size: 50px;
 }
 
 .toggle-container{
