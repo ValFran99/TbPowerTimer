@@ -65,7 +65,7 @@ body{
 
 /* For the toggle button */
 
-.toggle-recharge, .toggle-refill{
+#toggle-recharge, #toggle-refill{
   display: none;
 }
 

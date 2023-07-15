@@ -2,8 +2,6 @@ const TB_RECHARGE_IN_SEC = 360
 const MAX_TB = 180
 var RECHARGE_INTERVAL = 0
 var REFILL_INTERVAL = 0
-var FIRST_COUNTDOWN_INDEX = 3
-var SECOND_COUNTDOWN_INDEX = 5
 
 // Main function
 
@@ -26,9 +24,11 @@ function rechargeCalculation(element){
 
   // Shows the time of the refill/recharge
   let browserOffset = new Date().getTimezoneOffset() * 60 * 1000
-  document.getElementById(countdownType + "-date").innerHTML = new Date(rechargeInSeconds * 1000 + Date.now() - browserOffset).toISOString().slice(11, 16) + " HS";
+  document.getElementById(countdownType + "-date").innerHTML = new Date(rechargeInSeconds * 1000 + Date.now() - browserOffset).toISOString().slice(11, 16) + " HS"
 
-  showText(inputTypeFlag ? "toggle-recharge" : "toggle-refill")
+  document.getElementById(inputTypeFlag ? "toggle-recharge" : "toggle-refill").style.display = "block"
+
+  // showText(inputTypeFlag ? "toggle-recharge" : "toggle-refill")
   updateRechargeDocument(rechargeInSeconds, inputTypeFlag, countdownType)
   rechargeInSeconds -= 1
 
@@ -42,6 +42,7 @@ function rechargeCalculation(element){
     if(rechargeInSeconds <= 0){
       clearInterval(intervalId)
       let audio = new Audio("alarm_sound.mp3")
+      audio.volume = 0.3
       audio.play()
     }
     updateRechargeDocument(rechargeInSeconds, inputTypeFlag, countdownType)
@@ -58,9 +59,9 @@ function rechargeCalculation(element){
 // Updates the countdown timers
 function updateRechargeDocument(rechargeInSeconds, inputTypeFlag, countdownType){
   let countdownString = new Date(rechargeInSeconds * 1000).toISOString().slice(11, 19)
-  inputTypeFlag ? true : document.getElementById("page-title").innerHTML = "Full recharge in: " + countdownString;
+  inputTypeFlag ? true : document.getElementById("page-title").innerHTML = "Full recharge in: " + countdownString
 
-  document.getElementById(countdownType + "-time").innerHTML = prettyCountdownFormat(countdownString);
+  document.getElementById(countdownType + "-time").innerHTML = prettyCountdownFormat(countdownString)
 }
 
 function prettyCountdownFormat(countdownString){
@@ -70,12 +71,12 @@ function prettyCountdownFormat(countdownString){
   return countdownHour + countdownMinute + countdownSecond
 }
 
-function showText(className){
-  var textElements = document.getElementsByClassName(className)
-  for(let i = 0; i < textElements.length; i++){
-    textElements[i].style.display = "block"
-  }
-}
+// function showText(className){
+//   var textElements = document.getElementsByClassName(className)
+//   for(let i = 0; i < textElements.length; i++){
+//     textElements[i].style.display = "block"
+//   }
+// }
 
 // for the toggle switch
 

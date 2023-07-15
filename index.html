@@ -21,7 +21,7 @@
   </script>
   
   <script src="index.js"></script>
-  <title id="page-title">Traiblaze</title>
+  <title id="page-title">Tb Power Timer</title>
 </head>
 <body>
   <div class="title">
@@ -40,10 +40,12 @@
       <input type="number" id="input-recharge" onclick="this.select()" class="text-input">
       <input type="submit" value="Continue" class="submit-button">
     </div>
-    <p id="recharge-text" class="toggle-recharge"></p>
-    <p id="recharge-time" class="toggle-recharge"></p>
-    <p class="toggle-recharge">at:</p>
-    <p id="recharge-date" class="toggle-recharge"></p>
+    <div id="toggle-recharge">
+      <p id="recharge-text"></p>
+      <p id="recharge-time"></p>
+      <p>at:</p>
+      <p id="recharge-date"></p>
+    </div>
   </div>
 
   <div id="refill-calc" class="calc-container">
@@ -52,10 +54,12 @@
       <input type="number" id="input-refill" onclick="this.select()" class="text-input">
       <input type="submit" value="Continue" class="submit-button">
     </div>
-    <p class="toggle-refill">Full refill in: </p>
-    <p id="refill-time" class="toggle-refill"></p>
-    <p class="toggle-refill">at: </p>
-    <p id="refill-date" class="toggle-refill"></p>
+    <div id="toggle-refill">
+      <p>Full refill in: </p>
+      <p id="refill-time"></p>
+      <p>at: </p>
+      <p id="refill-date"></p>
+    </div>
   </div>
 </body>
 </html>
