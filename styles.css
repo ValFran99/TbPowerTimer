@@ -7,11 +7,13 @@ body{
   overflow-x: hidden;
 }
 
+/* main timers */
+
 #recharge-calc{
   display: none;
 }
 
-.container{
+.calc-container{
   text-align: center;
   font-size: 50px;
   width: 100%;
@@ -45,12 +47,6 @@ body{
   font-size: 35%;
 }
 
-.toggle-recharge, .toggle-refill{
-  display: none;
-}
-
-/* For the toggle button */
-
 .title{
   display: flex;
   height: 30%;
@@ -61,14 +57,20 @@ body{
   background-color: #ced7e0;
 }
 
-#toggle-text{
-  margin-right: 10px;
-}
-
 #title-text{
   width: 100%;
   align-items: center;
   font-size: 50px;
+}
+
+/* For the toggle button */
+
+.toggle-recharge, .toggle-refill{
+  display: none;
+}
+
+#toggle-text{
+  margin-right: 10px;
 }
 
 .toggle-container{
@@ -93,7 +95,7 @@ body{
   border: 1px solid black;
   position: relative;
   left: 5%;
-  top: 8%;
+  top: 10%;
   width: 41%;
   height: 75%;
   border-radius: 50%;
