@@ -40,6 +40,8 @@ function rechargeCalculation(element){
     }
     if(rechargeInSeconds <= 0){
       clearInterval(intervalId)
+      let audio = new Audio("alarm_sound.mp3")
+      audio.play()
     }
     updateRechargeDocument(rechargeInSeconds, browserOffset, inputTypeFlag, element.currentTarget.parentNode.parentNode)
     rechargeInSeconds -= 1
