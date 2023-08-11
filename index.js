@@ -71,13 +71,6 @@ function prettyCountdownFormat(countdownString){
   return countdownHour + countdownMinute + countdownSecond
 }
 
-// function showText(className){
-//   var textElements = document.getElementsByClassName(className)
-//   for(let i = 0; i < textElements.length; i++){
-//     textElements[i].style.display = "block"
-//   }
-// }
-
 // for the toggle switch
 
 function toggleSwitch(){
