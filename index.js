@@ -1,5 +1,5 @@
 const TB_RECHARGE_IN_SEC = 360
-const MAX_TB = 180
+const MAX_TB = 240
 var RECHARGE_INTERVAL = 0
 var REFILL_INTERVAL = 0
 
